@@ -25,14 +25,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Tech Stack - Animated Grid
   // ------------------------------
   const techStack = [
-    { name: 'HTML5', icon: 'fab fa-html5', color: '#E34F26' },
-    { name: 'CSS3', icon: 'fab fa-css3-alt', color: '#1572B6' },
-    { name: 'JavaScript', icon: 'fab fa-js', color: '#F7DF1E' },
+    { name: 'TypeScript', icon: 'devicon-typescript-plain', color: '#3178C6' },
+    { name: 'Next.js', icon: 'devicon-nextjs-plain', color: '#FFFFFF' },
     { name: 'React', icon: 'fab fa-react', color: '#61DAFB' },
+    { name: 'Flutter', icon: 'devicon-flutter-plain', color: '#54C5F8' },
+    { name: 'Tailwind CSS', icon: 'devicon-tailwindcss-plain', color: '#06B6D4' },
+    { name: 'JavaScript', icon: 'fab fa-js', color: '#F7DF1E' },
+    { name: 'PHP', icon: 'devicon-php-plain', color: '#8892BF' },
     { name: 'Node.js', icon: 'fab fa-node-js', color: '#339933' },
+    { name: 'Python', icon: 'fab fa-python', color: '#3776AB' },
     { name: 'Java', icon: 'fab fa-java', color: '#007396' },
+    { name: 'Supabase', icon: 'devicon-supabase-plain', color: '#3FCF8E' },
+    { name: 'SQLite', icon: 'devicon-sqlite-plain', color: '#29B5E8' },
     { name: 'SQL (MySQL)', icon: 'fas fa-database', color: '#4479A1' },
-    { name: 'Python', icon: 'fab fa-python', color: '#3776AB' }
+    { name: 'Git & GitHub', icon: 'devicon-git-plain', color: '#F05032' },
+    { name: 'Cloud / Vercel', icon: 'devicon-vercel-original', color: '#FFFFFF' },
+    { name: 'HTML5 & CSS3', icon: 'fab fa-html5', color: '#E34F26' }
   ];
 
   const techGrid = document.getElementById('techGrid');
