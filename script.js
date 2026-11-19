@@ -43,20 +43,19 @@ document.addEventListener('DOMContentLoaded', () => {
     { name: 'HTML5 & CSS3', icon: 'fab fa-html5', color: '#E34F26' }
   ];
 
-  const techGrid = document.getElementById('techGrid');
-  if (techGrid) {
-    techStack.forEach((tech, index) => {
-      const techItem = document.createElement('div');
-      techItem.className = 'tech-item';
-      techItem.setAttribute('data-aos', 'fade-up');
-      techItem.setAttribute('data-aos-delay', (index * 50).toString());
-      techItem.innerHTML = `
-        <i class="${tech.icon}" style="color: ${tech.color};"></i>
-        <span>${tech.name}</span>
-      `;
-      techGrid.appendChild(techItem);
+  // ------------------------------
+  // 1. Bento Card Dynamic Spotlight
+  // ------------------------------
+  const bentoCards = document.querySelectorAll('.bento-card');
+  bentoCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
     });
-  }
+  });
 
   // ------------------------------
   // 2. Contact Form Handler (Web3Forms API)

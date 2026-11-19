@@ -218,11 +218,12 @@
 
     <section id="projects">
       <div class="container">
-        <h2 class="section-title" data-aos="fade-up">My Professional Journey</h2>
-        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="50">Throughout my journey as a developer, I have
-          successfully delivered diverse projects, including:</p>
-        <div class="projects-grid">
-          <div class="project-card group" data-aos="flip-left" data-aos-delay="100">
+        <h2 class="section-title" data-aos="fade-up">Featured Works</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="50">A showcase of delivered web platforms, mobile designs, and software systems</p>
+
+        <div class="bento-grid-projects">
+          <!-- Project Card 1: Mobile HUB -->
+          <div class="bento-card project-card group" data-aos="fade-up" data-aos-delay="100">
             <div class="project-img bg-slate-800 relative overflow-hidden">
               <img src="images/MobileHub design.png" alt="Mobile HUB Project" loading="lazy" decoding="async"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
@@ -230,19 +231,27 @@
                 <div class="overlay-text">Double click to view</div>
               </div>
             </div>
-            <div class="project-content flex flex-col h-full">
-              <h3 class="text-cyan-400">Mobile HUB</h3>
-              <p>A retail showcase for a mobile shop providing detailed product and service information. Includes an
-                efficient admin dashboard for content management.</p>
+            <div class="project-content">
+              <div>
+                <h3 class="text-cyan-400">Mobile HUB</h3>
+                <p class="bento-desc">A retail showcase platform for mobile phones and digital accessories, featuring a custom admin dashboard for product and stock management.</p>
+                <div class="bento-tags">
+                  <span class="tech-tag"><i class="devicon-nextjs-plain"></i> Next.js</span>
+                  <span class="tech-tag"><i class="fab fa-react text-cyan-400"></i> React</span>
+                  <span class="tech-tag"><i class="fab fa-node-js text-green-400"></i> Node.js</span>
+                  <span class="tech-tag"><i class="fas fa-database text-blue-400"></i> SQL</span>
+                </div>
+              </div>
               <ul class="project-features">
-                <li><i class="fas fa-check"></i> Admin Dashboard</li>
-                <li><i class="fas fa-check"></i> Service Showcase</li>
-                <li><i class="fas fa-check"></i> Responsive Design</li>
+                <li><i class="fas fa-check text-cyan-400"></i> Admin Management Dashboard</li>
+                <li><i class="fas fa-check text-cyan-400"></i> Dynamic Product Showcase</li>
+                <li><i class="fas fa-check text-cyan-400"></i> 100% Mobile Responsive Layout</li>
               </ul>
             </div>
           </div>
 
-          <div class="project-card group" data-aos="flip-left" data-aos-delay="200">
+          <!-- Project Card 2: Fashion HUB -->
+          <div class="bento-card project-card group" data-aos="fade-up" data-aos-delay="200">
             <div class="project-img bg-slate-800 relative overflow-hidden">
               <img src="images/FashonHub design.png" alt="Fashion HUB Project" loading="lazy" decoding="async"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
@@ -250,19 +259,27 @@
                 <div class="overlay-text">Double click to view</div>
               </div>
             </div>
-            <div class="project-content flex flex-col h-full">
-              <h3 class="text-purple-400">Fashion HUB</h3>
-              <p>A modern clothing store featuring WhatsApp-based ordering and direct email contact. Managed through a
-                dedicated admin panel.</p>
+            <div class="project-content">
+              <div>
+                <h3 class="text-purple-400">Fashion HUB</h3>
+                <p class="bento-desc">A modern clothing store featuring WhatsApp-based direct ordering, catalog browsing, and a dedicated admin panel for inventory updates.</p>
+                <div class="bento-tags">
+                  <span class="tech-tag"><i class="devicon-php-plain text-indigo-400"></i> PHP</span>
+                  <span class="tech-tag"><i class="fab fa-js text-yellow-400"></i> JavaScript</span>
+                  <span class="tech-tag"><i class="fab fa-whatsapp text-green-400"></i> WhatsApp API</span>
+                  <span class="tech-tag"><i class="devicon-tailwindcss-plain text-cyan-400"></i> Tailwind</span>
+                </div>
+              </div>
               <ul class="project-features">
-                <li><i class="fas fa-check"></i> WhatsApp Ordering</li>
-                <li><i class="fas fa-check"></i> Admin Panel</li>
-                <li><i class="fas fa-check"></i> Responsive Design</li>
+                <li><i class="fas fa-check text-purple-400"></i> Direct WhatsApp Order Flow</li>
+                <li><i class="fas fa-check text-purple-400"></i> Product Catalog Admin Panel</li>
+                <li><i class="fas fa-check text-purple-400"></i> Fast & Clean User Experience</li>
               </ul>
             </div>
           </div>
 
-          <div class="project-card group" data-aos="flip-left" data-aos-delay="300">
+          <!-- Project Card 3: Tour Management System -->
+          <div class="bento-card project-card group" data-aos="fade-up" data-aos-delay="300">
             <div class="project-img bg-slate-800 relative overflow-hidden">
               <img src="images/TourManagement design.png" alt="Tour Management Project" loading="lazy" decoding="async"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
@@ -270,20 +287,28 @@
                 <div class="overlay-text">Double click to view</div>
               </div>
             </div>
-            <div class="project-content flex flex-col h-full">
-              <h3 class="text-teal-400">Tour Management System</h3>
-              <p>Python-based desktop software for tracking tours and payments. Manages drivers, companies, and vehicle
-                data with automated reporting.</p>
+            <div class="project-content">
+              <div>
+                <h3 class="text-teal-400">Tour Management System</h3>
+                <p class="bento-desc">Python-based desktop application for tour operations, managing driver details, vehicle data, payment records, and automated reports.</p>
+                <div class="bento-tags">
+                  <span class="tech-tag"><i class="fab fa-python text-yellow-400"></i> Python</span>
+                  <span class="tech-tag"><i class="devicon-sqlite-plain text-sky-400"></i> SQLite</span>
+                  <span class="tech-tag"><i class="fas fa-file-excel text-emerald-400"></i> Excel Reports</span>
+                  <span class="tech-tag"><i class="fas fa-file-pdf text-red-400"></i> PDF Exports</span>
+                </div>
+              </div>
               <ul class="project-features">
-                <li><i class="fas fa-check"></i> Payment Tracking</li>
-                <li><i class="fas fa-check"></i> Excel/PDF Reports</li>
-                <li><i class="fas fa-check"></i> Sorting & Filtering</li>
+                <li><i class="fas fa-check text-teal-400"></i> Payment & Expense Tracking</li>
+                <li><i class="fas fa-check text-teal-400"></i> Automated Excel & PDF Reports</li>
+                <li><i class="fas fa-check text-teal-400"></i> Driver & Fleet Records Audit</li>
               </ul>
             </div>
           </div>
         </div>
+
         <p class="projects-footer" data-aos="fade-up">I am constantly learning and adapting to the latest industry
-          trends to ensure my clients receive cutting-edge results.</p>
+          trends to ensure my clients receive high-quality results.</p>
       </div>
     </section>
 
@@ -303,7 +328,7 @@
             <div class="mt-6 flex justify-center gap-4 text-4xl text-cyan-400/60">
               <i class="fas fa-microscope"></i>
               <i class="fas fa-book-reader"></i>
-              <i class="fas fa-brain"></i>
+              <i class="fas fa-laptop-code"></i>
             </div>
           </div>
           <div class="why-card" data-aos="fade-up" data-aos-delay="200">
@@ -370,7 +395,92 @@
     <section id="tech-stack">
       <div class="container">
         <h2 class="section-title" data-aos="fade-up">Tech Stack & Tools</h2>
-        <div class="tech-grid" id="techGrid"></div>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="50">Production-grade technologies, libraries, and frameworks powering modern digital solutions</p>
+
+        <div class="bento-grid-skills">
+          <!-- Skill Bento Box 1: Frontend & Mobile -->
+          <div class="bento-card bento-skill-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="skill-header-main">
+              <div class="skill-icon-bubble cyan">
+                <i class="fas fa-layer-group"></i>
+              </div>
+              <div class="skill-title-group">
+                <h3 class="skill-card-title">Frontend & Mobile Development</h3>
+                <p class="skill-card-desc">Building responsive, accessible, and fast user interfaces across web and mobile devices.</p>
+              </div>
+            </div>
+
+            <div class="skill-pill-cluster">
+              <div class="skill-pill" title="TypeScript"><i class="devicon-typescript-plain" style="color: #3178C6;"></i> <span>TypeScript</span></div>
+              <div class="skill-pill" title="Next.js"><i class="devicon-nextjs-plain" style="color: #FFFFFF;"></i> <span>Next.js</span></div>
+              <div class="skill-pill" title="React"><i class="fab fa-react" style="color: #61DAFB;"></i> <span>React</span></div>
+              <div class="skill-pill" title="Flutter"><i class="devicon-flutter-plain" style="color: #54C5F8;"></i> <span>Flutter</span></div>
+              <div class="skill-pill" title="Tailwind CSS"><i class="devicon-tailwindcss-plain" style="color: #06B6D4;"></i> <span>Tailwind CSS</span></div>
+              <div class="skill-pill" title="JavaScript"><i class="fab fa-js" style="color: #F7DF1E;"></i> <span>JavaScript</span></div>
+              <div class="skill-pill" title="HTML5 & CSS3"><i class="fab fa-html5" style="color: #E34F26;"></i> <span>HTML5 / CSS3</span></div>
+            </div>
+          </div>
+
+          <!-- Skill Bento Box 2: Backend Architecture & Cloud -->
+          <div class="bento-card bento-skill-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="skill-header-main">
+              <div class="skill-icon-bubble purple">
+                <i class="fas fa-server"></i>
+              </div>
+              <div class="skill-title-group">
+                <h3 class="skill-card-title">Backend & Server Technologies</h3>
+                <p class="skill-card-desc">Server-side languages, RESTful APIs, and deployment platforms for reliable web systems.</p>
+              </div>
+            </div>
+
+            <div class="skill-pill-cluster">
+              <div class="skill-pill" title="Node.js"><i class="fab fa-node-js" style="color: #339933;"></i> <span>Node.js</span></div>
+              <div class="skill-pill" title="Python"><i class="fab fa-python" style="color: #3776AB;"></i> <span>Python</span></div>
+              <div class="skill-pill" title="Java"><i class="fab fa-java" style="color: #007396;"></i> <span>Java</span></div>
+              <div class="skill-pill" title="PHP"><i class="devicon-php-plain" style="color: #8892BF;"></i> <span>PHP</span></div>
+              <div class="skill-pill" title="Cloud & Vercel"><i class="devicon-vercel-original" style="color: #FFFFFF;"></i> <span>Cloud / Vercel</span></div>
+            </div>
+          </div>
+
+          <!-- Skill Bento Box 3: Databases & Storage -->
+          <div class="bento-card bento-skill-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="skill-header-main">
+              <div class="skill-icon-bubble teal">
+                <i class="fas fa-database"></i>
+              </div>
+              <div class="skill-title-group">
+                <h3 class="skill-card-title">Databases & Data Storage</h3>
+                <p class="skill-card-desc">Relational schema design, query optimization, and structured database management.</p>
+              </div>
+            </div>
+
+            <div class="skill-pill-cluster">
+              <div class="skill-pill" title="MySQL / Relational SQL"><i class="fas fa-database" style="color: #4479A1;"></i> <span>SQL (MySQL)</span></div>
+              <div class="skill-pill" title="Supabase Realtime"><i class="devicon-supabase-plain" style="color: #3FCF8E;"></i> <span>Supabase</span></div>
+              <div class="skill-pill" title="SQLite Embedded"><i class="devicon-sqlite-plain" style="color: #29B5E8;"></i> <span>SQLite</span></div>
+            </div>
+          </div>
+
+          <!-- Skill Bento Box 4: DevOps & Engineering Workflow -->
+          <div class="bento-card bento-skill-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="skill-header-main">
+              <div class="skill-icon-bubble blue">
+                <i class="fas fa-code-branch"></i>
+              </div>
+              <div class="skill-title-group">
+                <h3 class="skill-card-title">Tools & Version Control</h3>
+                <p class="skill-card-desc">Version control, developer workflows, and team collaboration tooling for clean projects.</p>
+              </div>
+            </div>
+
+            <div class="skill-pill-cluster">
+              <div class="skill-pill" title="Git Version Control"><i class="devicon-git-plain" style="color: #F05032;"></i> <span>Git Versioning</span></div>
+              <div class="skill-pill" title="GitHub Collaboration"><i class="fab fa-github" style="color: #FFFFFF;"></i> <span>GitHub Workflows</span></div>
+              <div class="skill-pill" title="RESTful APIs"><i class="fas fa-network-wired" style="color: #38BDF8;"></i> <span>RESTful APIs</span></div>
+              <div class="skill-pill" title="Modern Tooling & IDEs"><i class="fas fa-terminal" style="color: #A855F7;"></i> <span>VS Code & CLI</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
