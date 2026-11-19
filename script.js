@@ -405,7 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Formatting helper
+    // Formatting helper with rich UI/UX formatting (lists, links, emails, whatsapp)
     const formatBotMessage = (text) => {
       // Escape HTML
       const div = document.createElement('div');
@@ -415,11 +415,27 @@ document.addEventListener('DOMContentLoaded', () => {
       // Bold markdown
       safe = safe.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
-      // URLs to clickable links
-      safe = safe.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
+      // Convert bullet points (- item or * item)
+      safe = safe.replace(/^[\*\-]\s+(.*)$/gm, '<li class="chat-li">$1</li>');
+      // Wrap consecutive <li> into <ul>
+      safe = safe.replace(/((?:<li class="chat-li">.*?<\/li>\s*)+)/g, '<ul class="chat-ul">$1</ul>');
 
-      // Newlines
-      safe = safe.replace(/\n/g, '<br>');
+      // Clickable emails
+      safe = safe.replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:$1" class="chat-link email-link"><i class="fas fa-envelope"></i> $1</a>');
+
+      // Clickable WhatsApp (+94 702913774)
+      safe = safe.replace(/(\+94\s*7[0-9\s]{7,10})/g, (match) => {
+        const cleanNumber = match.replace(/[\s+]/g, '');
+        return `<a href="https://wa.me/${cleanNumber}" target="_blank" rel="noopener noreferrer" class="chat-link wa-link"><i class="fab fa-whatsapp"></i> ${match}</a>`;
+      });
+
+      // Regular URLs to clickable links (avoiding already linked mailto/wa)
+      safe = safe.replace(/(?<!href=")(https?:\/\/[^\s<"']+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" class="chat-link">$1</a>');
+
+      // Line breaks (ignore breaks directly after </ul> or </li>)
+      safe = safe.replace(/\n(?!\s*<\/?(ul|li))/g, '<br>');
+      safe = safe.replace(/(<br>\s*){3,}/g, '<br><br>');
+
       return safe;
     };
 
