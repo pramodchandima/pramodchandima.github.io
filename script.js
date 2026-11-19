@@ -367,4 +367,124 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
     }
   });
+
+  // ------------------------------
+  // 10. AI Chat Assistant Widget
+  // ------------------------------
+  const aiChatWidget = document.getElementById('aiChatWidget');
+  const aiChatToggle = document.getElementById('aiChatToggle');
+  const aiChatClose = document.getElementById('aiChatClose');
+  const aiChatForm = document.getElementById('aiChatForm');
+  const aiChatInput = document.getElementById('aiChatInput');
+  const aiChatMessages = document.getElementById('aiChatMessages');
+  const chatChips = document.querySelectorAll('.chat-chip');
+
+  if (aiChatWidget && aiChatToggle && aiChatForm && aiChatInput && aiChatMessages) {
+    const WORKER_URL = 'https://pramod-bot.pramodfernando49.workers.dev';
+
+    const toggleChat = () => {
+      const isActive = aiChatWidget.classList.toggle('active');
+      if (isActive) {
+        setTimeout(() => aiChatInput.focus(), 150);
+      }
+    };
+
+    aiChatToggle.addEventListener('click', toggleChat);
+    if (aiChatClose) {
+      aiChatClose.addEventListener('click', () => {
+        aiChatWidget.classList.remove('active');
+      });
+    }
+
+    // Quick suggestion chips
+    chatChips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const prompt = chip.getAttribute('data-prompt') || chip.textContent.trim();
+        aiChatInput.value = prompt;
+        sendMessage(prompt);
+      });
+    });
+
+    // Formatting helper
+    const formatBotMessage = (text) => {
+      // Escape HTML
+      const div = document.createElement('div');
+      div.textContent = text;
+      let safe = div.innerHTML;
+
+      // Bold markdown
+      safe = safe.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+      // URLs to clickable links
+      safe = safe.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
+
+      // Newlines
+      safe = safe.replace(/\n/g, '<br>');
+      return safe;
+    };
+
+    const appendMessage = (sender, htmlContent) => {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `chat-msg ${sender}`;
+      msgDiv.innerHTML = `<div class="msg-bubble">${htmlContent}</div>`;
+      aiChatMessages.appendChild(msgDiv);
+      aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+      return msgDiv;
+    };
+
+    const sendMessage = async (messageText) => {
+      const text = (messageText || aiChatInput.value).trim();
+      if (!text) return;
+
+      // Add user message
+      const div = document.createElement('div');
+      div.textContent = text;
+      appendMessage('user', div.innerHTML);
+      aiChatInput.value = '';
+
+      // Disable inputs while waiting
+      aiChatInput.disabled = true;
+      const sendBtn = aiChatForm.querySelector('button[type="submit"]');
+      if (sendBtn) sendBtn.disabled = true;
+
+      // Show typing indicator
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'chat-msg bot typing';
+      typingDiv.innerHTML = '<div class="msg-bubble"><div class="typing-dots"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div></div>';
+      aiChatMessages.appendChild(typingDiv);
+      aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+
+      try {
+        const response = await fetch(WORKER_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ message: text }),
+        });
+
+        const data = await response.json();
+        typingDiv.remove();
+
+        if (response.ok && data.reply) {
+          appendMessage('bot', formatBotMessage(data.reply));
+        } else {
+          const errMsg = data.error || 'Sorry, I encountered an issue. Please feel free to check out Pramod\'s GitHub: https://github.com/pramodchandima';
+          appendMessage('bot', formatBotMessage(errMsg));
+        }
+      } catch (err) {
+        typingDiv.remove();
+        appendMessage('bot', 'Network error reaching assistant. You can check out Pramod\'s work directly on GitHub: https://github.com/pramodchandima');
+      } finally {
+        aiChatInput.disabled = false;
+        if (sendBtn) sendBtn.disabled = false;
+        aiChatInput.focus();
+      }
+    };
+
+    aiChatForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      sendMessage();
+    });
+  }
 });
