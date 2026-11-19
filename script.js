@@ -86,14 +86,25 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin ml-2"></i>';
 
       try {
-        const response = await fetch("https://api.web3forms.com/submit", {
+        const payload = {
+          type: 'contact',
+          name: name,
+          email: email,
+          message: message,
+          subject: formData.get('subject') || 'New Portfolio Message!'
+        };
+
+        const response = await fetch("https://pramod-bot.pramodfernando49.workers.dev", {
           method: "POST",
-          body: formData
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
         });
 
         const result = await response.json();
 
-        if (result.success) {
+        if (response.ok && result.success) {
           showFeedback(`✅ Thanks ${name}! Your message has been sent successfully.`, 'success');
           contactForm.reset();
         } else {
