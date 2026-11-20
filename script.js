@@ -371,51 +371,68 @@ document.addEventListener('dragstart', (e) => {
   const projectCarousel = document.querySelector('#projects .bento-grid-projects');
 
   if (projectCarousel && window.matchMedia('(pointer: fine)').matches) {
-    const edgeZone = 90;
-    let edgeSpeed = 0;
+    const maxSpeed = 14;
+    const minSpeed = 2;
+    let targetSpeed = 0;
+    let currentSpeed = 0;
     let scrollFrame = null;
 
     const edgeScroll = () => {
       const maxScroll = projectCarousel.scrollWidth - projectCarousel.clientWidth;
 
-      if (!edgeSpeed || (edgeSpeed < 0 && projectCarousel.scrollLeft <= 0) || (edgeSpeed > 0 && projectCarousel.scrollLeft >= maxScroll)) {
-        edgeSpeed = 0;
+      currentSpeed += (targetSpeed - currentSpeed) * 0.18;
+
+      if ((currentSpeed < 0 && projectCarousel.scrollLeft <= 0) || (currentSpeed > 0 && projectCarousel.scrollLeft >= maxScroll)) {
+        currentSpeed = 0;
+        targetSpeed = 0;
         scrollFrame = null;
         return;
       }
 
-      projectCarousel.scrollLeft += edgeSpeed;
+      if (!targetSpeed && Math.abs(currentSpeed) < 0.1) {
+        currentSpeed = 0;
+        scrollFrame = null;
+        return;
+      }
+
+      projectCarousel.scrollLeft += currentSpeed;
       scrollFrame = requestAnimationFrame(edgeScroll);
     };
 
-    const setEdgeSpeed = speed => {
-      edgeSpeed = speed;
+    const setTargetSpeed = speed => {
+      targetSpeed = speed;
 
-      if (speed && !scrollFrame) {
+      if (!scrollFrame) {
         scrollFrame = requestAnimationFrame(edgeScroll);
       }
     };
 
+    const speedFromDistance = (distance, zone) => {
+      const ratio = Math.min(1, Math.max(0, distance / zone));
+      return minSpeed + (maxSpeed - minSpeed) * Math.pow(ratio, 1.4);
+    };
+
     document.addEventListener('mousemove', event => {
       const rect = projectCarousel.getBoundingClientRect();
+      const edgeZone = Math.min(240, window.innerWidth * 0.28);
       const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
 
       if (!isVisible) {
-        setEdgeSpeed(0);
+        setTargetSpeed(0);
         return;
       }
 
       if (event.clientX < edgeZone) {
-        setEdgeSpeed(-Math.max(1, Math.ceil((edgeZone - event.clientX) / 18)));
+        setTargetSpeed(-speedFromDistance(edgeZone - event.clientX, edgeZone));
       } else if (event.clientX > window.innerWidth - edgeZone) {
-        setEdgeSpeed(Math.max(1, Math.ceil((event.clientX - (window.innerWidth - edgeZone)) / 18)));
+        setTargetSpeed(speedFromDistance(event.clientX - (window.innerWidth - edgeZone), edgeZone));
       } else {
-        setEdgeSpeed(0);
+        setTargetSpeed(0);
       }
     });
 
-    document.addEventListener('mouseleave', () => setEdgeSpeed(0));
-    window.addEventListener('blur', () => setEdgeSpeed(0));
+    document.addEventListener('mouseleave', () => setTargetSpeed(0));
+    window.addEventListener('blur', () => setTargetSpeed(0));
   }
 
 });
