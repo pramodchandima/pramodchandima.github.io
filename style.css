@@ -1772,16 +1772,6 @@ a.project-card:focus-visible {
   object-position: center top;
 }
 
-.project-split-media .project-image-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 430px;
-  font-size: 5rem;
-  color: var(--text-secondary);
-  opacity: 0.45;
-}
-
 .project-media-caption {
   position: absolute;
   left: 0;
@@ -1973,10 +1963,6 @@ a.project-card:focus-visible {
   .project-split-media img {
     height: 220px;
     min-height: 0;
-  }
-
-  .project-split-media .project-image-placeholder {
-    min-height: 220px;
   }
 
   .project-split-content {
