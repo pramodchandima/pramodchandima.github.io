@@ -1391,11 +1391,11 @@ section {
 }
 
 .project-details-page {
-  padding: 9rem 0 5rem;
+  padding: 2.5rem 0 5rem;
 }
 
 .project-detail-page-view.project-details-page {
-  padding-top: 6.5rem;
+  padding-top: 2.5rem;
 }
 
 .project-details-intro {
@@ -1457,7 +1457,7 @@ a.project-card:focus-visible {
 }
 
 .project-loading {
-  padding: 12rem 1.5rem 6rem;
+  padding: 2.5rem 1.5rem 6rem;
   text-align: center;
   color: var(--text-secondary);
 }
@@ -1745,7 +1745,7 @@ a.project-card:focus-visible {
 
 @media (max-width: 600px) {
   .project-detail-page-view.project-details-page {
-    padding-top: 5.75rem;
+    padding-top: 1.5rem;
   }
 
   .related-projects-grid {
