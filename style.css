@@ -1060,6 +1060,12 @@ section {
   border-color: rgba(245, 158, 11, 0.3);
 }
 
+.bento-badge.sky {
+  background: rgba(14, 165, 233, 0.12);
+  color: #38bdf8;
+  border-color: rgba(14, 165, 233, 0.3);
+}
+
 .bento-status {
   display: inline-flex;
   align-items: center;
@@ -1776,6 +1782,10 @@ a.project-card:focus-visible {
   object-position: center top;
 }
 
+.project-split-media .project-image-placeholder {
+  min-height: 430px;
+}
+
 .project-media-caption {
   position: absolute;
   left: 0;
@@ -1967,6 +1977,10 @@ a.project-card:focus-visible {
   .project-split-media img {
     height: 220px;
     min-height: 0;
+  }
+
+  .project-split-media .project-image-placeholder {
+    min-height: 220px;
   }
 
   .project-split-content {
