@@ -368,4 +368,54 @@ document.addEventListener('dragstart', (e) => {
   }
 });
 
+  const projectCarousel = document.querySelector('#projects .bento-grid-projects');
+
+  if (projectCarousel && window.matchMedia('(pointer: fine)').matches) {
+    const edgeZone = 90;
+    let edgeSpeed = 0;
+    let scrollFrame = null;
+
+    const edgeScroll = () => {
+      const maxScroll = projectCarousel.scrollWidth - projectCarousel.clientWidth;
+
+      if (!edgeSpeed || (edgeSpeed < 0 && projectCarousel.scrollLeft <= 0) || (edgeSpeed > 0 && projectCarousel.scrollLeft >= maxScroll)) {
+        edgeSpeed = 0;
+        scrollFrame = null;
+        return;
+      }
+
+      projectCarousel.scrollLeft += edgeSpeed;
+      scrollFrame = requestAnimationFrame(edgeScroll);
+    };
+
+    const setEdgeSpeed = speed => {
+      edgeSpeed = speed;
+
+      if (speed && !scrollFrame) {
+        scrollFrame = requestAnimationFrame(edgeScroll);
+      }
+    };
+
+    document.addEventListener('mousemove', event => {
+      const rect = projectCarousel.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+      if (!isVisible) {
+        setEdgeSpeed(0);
+        return;
+      }
+
+      if (event.clientX < edgeZone) {
+        setEdgeSpeed(-Math.max(1, Math.ceil((edgeZone - event.clientX) / 18)));
+      } else if (event.clientX > window.innerWidth - edgeZone) {
+        setEdgeSpeed(Math.max(1, Math.ceil((event.clientX - (window.innerWidth - edgeZone)) / 18)));
+      } else {
+        setEdgeSpeed(0);
+      }
+    });
+
+    document.addEventListener('mouseleave', () => setEdgeSpeed(0));
+    window.addEventListener('blur', () => setEdgeSpeed(0));
+  }
+
 });

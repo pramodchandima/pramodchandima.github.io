@@ -2822,3 +2822,36 @@ footer {
     height: 420px;
   }
 }
+
+#projects .bento-grid-projects {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.75rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-behavior: auto;
+  scrollbar-width: none;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+#projects .bento-grid-projects::-webkit-scrollbar {
+  display: none;
+}
+
+#projects .bento-grid-projects .bento-card {
+  flex: 0 0 calc((100% - 3.5rem) / 3);
+  height: auto;
+}
+
+@media (max-width: 1024px) {
+  #projects .bento-grid-projects .bento-card {
+    flex-basis: calc((100% - 1.75rem) / 2);
+  }
+}
+
+@media (max-width: 768px) {
+  #projects .bento-grid-projects .bento-card {
+    flex-basis: 85%;
+  }
+}
