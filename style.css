@@ -1135,13 +1135,14 @@ section {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  padding: 1rem;
 }
 
 .bento-grid-projects .project-img {
-  height: 190px;
+  height: 155px;
   width: 100%;
   border-radius: 0;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.85rem;
   flex-shrink: 0;
 }
 
@@ -1149,13 +1150,44 @@ section {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 0;
+}
+
+.bento-grid-projects .bento-tags {
+  flex-wrap: nowrap;
+  gap: 0.3rem;
+  margin-bottom: 0.25rem;
+}
+
+.bento-grid-projects .tech-tag {
+  padding: 0.22rem 0.45rem;
+  gap: 0.25rem;
+  font-size: 0.72rem;
+  white-space: nowrap;
 }
 
 .bento-grid-projects .project-content h3 {
   font-size: 1.4rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.bento-grid-projects .project-content p {
+  margin-bottom: 0.65rem;
+}
+
+.bento-grid-projects .project-features {
+  margin-top: 0.15rem;
+}
+
+.bento-grid-projects .project-features li {
+  margin-bottom: 0.35rem;
+}
+
+@media (max-width: 700px) {
+  .bento-grid-projects .bento-tags {
+    flex-wrap: wrap;
+  }
 }
 
 /* --- Skills Bento Grid (Balanced 2x2 Layout with Pixel-Perfect Alignment) --- */
