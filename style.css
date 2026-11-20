@@ -1379,6 +1379,10 @@ section {
   overflow: hidden;
 }
 
+.project-img img {
+  object-position: center top;
+}
+
 .img-overlay {
   position: absolute;
   top: 0;
