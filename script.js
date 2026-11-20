@@ -324,36 +324,6 @@ if (p5Container && typeof p5 !== 'undefined') {
 }
 
 // ------------------------------
-// 8. Image Modal Logic
-// ------------------------------
-const imageModal = document.getElementById('imageModal');
-const modalImage = document.getElementById('modalImage');
-const projectImages = document.querySelectorAll('.project-img');
-
-if (imageModal && modalImage) {
-  projectImages.forEach(container => {
-    container.addEventListener('dblclick', function () {
-      const img = this.querySelector('img');
-      if (img) {
-        modalImage.src = img.src;
-        imageModal.style.display = 'flex';
-        setTimeout(() => imageModal.classList.add('active'), 10);
-        document.body.style.overflow = 'hidden';
-      }
-    });
-  });
-
-  const closeModal = () => {
-    imageModal.classList.remove('active');
-    setTimeout(() => { imageModal.style.display = 'none'; }, 400);
-    document.body.style.overflow = '';
-  };
-
-  imageModal.addEventListener('click', (e) => { if (e.target === imageModal) closeModal(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-}
-
-// ------------------------------
 // 9. Disable Image Context Menu & Drag
 // ------------------------------
 document.addEventListener('contextmenu', (e) => {
