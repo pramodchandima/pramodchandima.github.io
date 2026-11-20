@@ -1,7 +1,7 @@
 ﻿/**
  * Portfolio Website - Pramod Chandima
- * Features: AOS Initialization, Web3Forms Contact Handling, Smooth Scroll,
- * Tech Stack Animation, Three.js & p5.js Visuals, Image Modal
+ * Features: AOS Initialization, Web3Forms Contact Handling, Scroll Reveal,
+ * Three.js & p5.js Visuals, Featured Works Carousel
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,28 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (typeof AOS !== 'undefined') AOS.init({ duration: 800, once: true, offset: 60 });
     });
   }
-
-  // ------------------------------
-  // 1. Tech Stack - Animated Grid
-  // ------------------------------
-  const techStack = [
-    { name: 'TypeScript', icon: 'devicon-typescript-plain', color: '#3178C6' },
-    { name: 'Next.js', icon: 'devicon-nextjs-plain', color: '#FFFFFF' },
-    { name: 'React', icon: 'fab fa-react', color: '#61DAFB' },
-    { name: 'Flutter', icon: 'devicon-flutter-plain', color: '#54C5F8' },
-    { name: 'Tailwind CSS', icon: 'devicon-tailwindcss-plain', color: '#06B6D4' },
-    { name: 'JavaScript', icon: 'fab fa-js', color: '#F7DF1E' },
-    { name: 'PHP', icon: 'devicon-php-plain', color: '#8892BF' },
-    { name: 'Node.js', icon: 'fab fa-node-js', color: '#339933' },
-    { name: 'Python', icon: 'fab fa-python', color: '#3776AB' },
-    { name: 'Java', icon: 'fab fa-java', color: '#007396' },
-    { name: 'Supabase', icon: 'devicon-supabase-plain', color: '#3FCF8E' },
-    { name: 'SQLite', icon: 'devicon-sqlite-plain', color: '#29B5E8' },
-    { name: 'SQL (MySQL)', icon: 'fas fa-database', color: '#4479A1' },
-    { name: 'Git & GitHub', icon: 'devicon-git-plain', color: '#F05032' },
-    { name: 'Cloud / Vercel', icon: 'devicon-vercel-original', color: '#FFFFFF' },
-    { name: 'HTML5 & CSS3', icon: 'fab fa-html5', color: '#E34F26' }
-  ];
 
   // ------------------------------
   // 1. Bento Card Dynamic Spotlight
@@ -140,68 +118,7 @@ function showFeedback(msg, type) {
 }
 
 // ------------------------------
-// 3. Smooth Scroll & Navigation
-// ------------------------------
-document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const targetId = this.getAttribute('href');
-    if (targetId === "#" || targetId === "") return;
-
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-      e.preventDefault();
-      const offsetTop = targetElement.offsetTop - 80;
-      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-      history.pushState(null, null, targetId);
-
-      // Close mobile menu if open
-      const mobileMenu = document.getElementById('mobile-menu');
-      const navLinksContainer = document.querySelector('.nav-links');
-      if (mobileMenu && navLinksContainer && mobileMenu.classList.contains('active')) {
-        mobileMenu.classList.remove('active');
-        navLinksContainer.classList.remove('active');
-      }
-    }
-  });
-});
-
-// Mobile Menu Toggle logic
-const mobileMenuButton = document.getElementById('mobile-menu');
-const navLinksList = document.querySelector('.nav-links');
-
-if (mobileMenuButton && navLinksList) {
-  mobileMenuButton.addEventListener('click', () => {
-    mobileMenuButton.classList.toggle('active');
-    navLinksList.classList.toggle('active');
-  });
-}
-
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-
-function updateActiveNavLink() {
-  let current = '';
-  const scrollPosition = window.scrollY + 100;
-
-  sections.forEach(section => {
-    if (scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.clientHeight) {
-      current = section.getAttribute('id');
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) {
-      link.classList.add('active');
-    }
-  });
-}
-
-window.addEventListener('scroll', updateActiveNavLink);
-updateActiveNavLink();
-
-// ------------------------------
-// 4. CV Download Handler
+// 3. CV Download Handler
 // ------------------------------
 const downloadBtn = document.getElementById('downloadCV');
 if (downloadBtn) {
@@ -211,7 +128,7 @@ if (downloadBtn) {
 }
 
 // ------------------------------
-// 5. Scroll Reveal Logic
+// 4. Scroll Reveal Logic
 // ------------------------------
 const revealSections = document.querySelectorAll('section, .service-card, .project-card');
 revealSections.forEach(s => s.classList.add('section-hidden'));
@@ -228,7 +145,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 revealSections.forEach(s => revealObserver.observe(s));
 
 // ------------------------------
-// 6. Three.js Background
+// 5. Three.js Background
 // ------------------------------
 const threeContainer = document.getElementById('threejs-canvas-container');
 if (threeContainer && typeof THREE !== 'undefined') {
@@ -281,7 +198,7 @@ if (threeContainer && typeof THREE !== 'undefined') {
 }
 
 // ------------------------------
-// 7. p5.js Starfield
+// 6. p5.js Starfield
 // ------------------------------
 const p5Container = document.getElementById('p5js-canvas-container');
 if (p5Container && typeof p5 !== 'undefined') {
@@ -324,7 +241,7 @@ if (p5Container && typeof p5 !== 'undefined') {
 }
 
 // ------------------------------
-// 9. Disable Image Context Menu & Drag
+// 7. Disable Image Context Menu & Drag
 // ------------------------------
 document.addEventListener('contextmenu', (e) => {
   if (e.target.tagName === 'IMG' || e.target.classList.contains('profile-image-overlay')) {
