@@ -1110,6 +1110,12 @@ section {
   }
 }
 
+@media (max-width: 768px) {
+  .project-details-page .bento-grid-projects {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* --- Skills Bento Grid (Balanced 2x2 Layout with Pixel-Perfect Alignment) --- */
 .bento-grid-skills {
   display: grid;
