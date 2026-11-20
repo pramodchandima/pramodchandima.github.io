@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Portfolio Website - Pramod Chandima
  * Features: AOS Initialization, Web3Forms Contact Handling, Smooth Scroll,
  * Tech Stack Animation, Three.js & p5.js Visuals, Image Modal
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Basic Client-side Validation
       if (!name || !email || !message) {
-        showFeedback('⚠️ Please fill in all required fields.', 'error');
+        showFeedback('âš ï¸ Please fill in all required fields.', 'error');
         return;
       }
 
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const result = await response.json();
 
           if(response.ok && result.success) {
-            showFeedback(`✅ Thanks ${name}! Your message has been sent successfully.`, 'success');
+            showFeedback(`âœ… Thanks ${name}! Your message has been sent successfully.`, 'success');
         contactForm.reset();
       } else {
         throw new Error(result.message || 'Submission failed');
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     } catch (error) {
       console.error('Form submission error:', error);
-      showFeedback('❌ Oops! Something went wrong. Please try again later.', 'error');
+      showFeedback('âŒ Oops! Something went wrong. Please try again later.', 'error');
     } finally {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalBtnText;
@@ -206,7 +206,7 @@ updateActiveNavLink();
 const downloadBtn = document.getElementById('downloadCV');
 if (downloadBtn) {
   downloadBtn.addEventListener('click', () => {
-    showFeedback('✅ CV download started!', 'success');
+    showFeedback('âœ… CV download started!', 'success');
   });
 }
 
@@ -368,139 +368,4 @@ document.addEventListener('dragstart', (e) => {
   }
 });
 
-// ------------------------------
-// 10. AI Chat Assistant Widget
-// ------------------------------
-const aiChatWidget = document.getElementById('aiChatWidget');
-const aiChatToggle = document.getElementById('aiChatToggle');
-const aiChatClose = document.getElementById('aiChatClose');
-const aiChatForm = document.getElementById('aiChatForm');
-const aiChatInput = document.getElementById('aiChatInput');
-const aiChatMessages = document.getElementById('aiChatMessages');
-const chatChips = document.querySelectorAll('.chat-chip');
-
-if (aiChatWidget && aiChatToggle && aiChatForm && aiChatInput && aiChatMessages) {
-  const WORKER_URL = 'https://pramod-bot.pramodfernando49.workers.dev';
-
-  const toggleChat = () => {
-    const isActive = aiChatWidget.classList.toggle('active');
-    if (isActive) {
-      setTimeout(() => aiChatInput.focus(), 150);
-    }
-  };
-
-  aiChatToggle.addEventListener('click', toggleChat);
-  if (aiChatClose) {
-    aiChatClose.addEventListener('click', () => {
-      aiChatWidget.classList.remove('active');
-    });
-  }
-
-  // Quick suggestion chips
-  chatChips.forEach((chip) => {
-    chip.addEventListener('click', () => {
-      const prompt = chip.getAttribute('data-prompt') || chip.textContent.trim();
-      aiChatInput.value = prompt;
-      sendMessage(prompt);
-    });
-  });
-
-  // Formatting helper with rich UI/UX formatting (lists, links, emails, whatsapp)
-  const formatBotMessage = (text) => {
-    // Escape HTML
-    const div = document.createElement('div');
-    div.textContent = text;
-    let safe = div.innerHTML;
-
-    // Bold markdown
-    safe = safe.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-
-    // Convert bullet points (- item or * item)
-    safe = safe.replace(/^[\*\-]\s+(.*)$/gm, '<li class="chat-li">$1</li>');
-    // Wrap consecutive <li> into <ul>
-    safe = safe.replace(/((?:<li class="chat-li">.*?<\/li>\s*)+)/g, '<ul class="chat-ul">$1</ul>');
-
-    // Clickable emails
-    safe = safe.replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:$1" class="chat-link email-link"><i class="fas fa-envelope"></i> $1</a>');
-
-    // Clickable WhatsApp (+94 702913774)
-    safe = safe.replace(/(\+94\s*7[0-9\s]{7,10})/g, (match) => {
-      const cleanNumber = match.replace(/[\s+]/g, '');
-      return `<a href="https://wa.me/${cleanNumber}" target="_blank" rel="noopener noreferrer" class="chat-link wa-link"><i class="fab fa-whatsapp"></i> ${match}</a>`;
-    });
-
-    // Regular URLs to clickable links (avoiding already linked mailto/wa)
-    safe = safe.replace(/(?<!href=")(https?:\/\/[^\s<"']+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" class="chat-link">$1</a>');
-
-    // Line breaks (ignore breaks directly after </ul> or </li>)
-    safe = safe.replace(/\n(?!\s*<\/?(ul|li))/g, '<br>');
-    safe = safe.replace(/(<br>\s*){3,}/g, '<br><br>');
-
-    return safe;
-  };
-
-  const appendMessage = (sender, htmlContent) => {
-    const msgDiv = document.createElement('div');
-    msgDiv.className = `chat-msg ${sender}`;
-    msgDiv.innerHTML = `<div class="msg-bubble">${htmlContent}</div>`;
-    aiChatMessages.appendChild(msgDiv);
-    aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
-    return msgDiv;
-  };
-
-  const sendMessage = async (messageText) => {
-    const text = (messageText || aiChatInput.value).trim();
-    if (!text) return;
-
-    // Add user message
-    const div = document.createElement('div');
-    div.textContent = text;
-    appendMessage('user', div.innerHTML);
-    aiChatInput.value = '';
-
-    // Disable inputs while waiting
-    aiChatInput.disabled = true;
-    const sendBtn = aiChatForm.querySelector('button[type="submit"]');
-    if (sendBtn) sendBtn.disabled = true;
-
-    // Show typing indicator
-    const typingDiv = document.createElement('div');
-    typingDiv.className = 'chat-msg bot typing';
-    typingDiv.innerHTML = '<div class="msg-bubble"><div class="typing-dots"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div></div>';
-    aiChatMessages.appendChild(typingDiv);
-    aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
-
-    try {
-      const response = await fetch(WORKER_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message: text }),
-      });
-
-      const data = await response.json();
-      typingDiv.remove();
-
-      if (response.ok && data.reply) {
-        appendMessage('bot', formatBotMessage(data.reply));
-      } else {
-        const errMsg = data.error || 'Sorry, I encountered an issue. Please feel free to check out Pramod\'s GitHub: https://github.com/pramodchandima';
-        appendMessage('bot', formatBotMessage(errMsg));
-      }
-    } catch (err) {
-      typingDiv.remove();
-      appendMessage('bot', 'Network error reaching assistant. You can check out Pramod\'s work directly on GitHub: https://github.com/pramodchandima');
-    } finally {
-      aiChatInput.disabled = false;
-      if (sendBtn) sendBtn.disabled = false;
-      aiChatInput.focus();
-    }
-  };
-
-  aiChatForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    sendMessage();
-  });
-}
 });
