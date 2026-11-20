@@ -34,7 +34,6 @@ Browse them all in the [portfolio](https://github.com/pramodchandima/my-portfoli
 Have a project in mind? Let's bring your vision to life.
 
 - Email: chandimapramod6@gmail.com
-- Phone / WhatsApp: +94 702913774
 - GitHub: https://github.com/pramodchandima
 - LinkedIn: https://www.linkedin.com/in/pramod-fernando/
 
