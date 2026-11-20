@@ -39,6 +39,20 @@ async function renderProject() {
         card.setAttribute('aria-current', 'page');
       }
     });
+
+    const galleryMain = detailContent.querySelector('.project-gallery-main');
+    const galleryThumb = detailContent.querySelector('.project-gallery-thumb img');
+    const galleryButton = detailContent.querySelector('.project-gallery-thumb');
+
+    if (galleryMain && galleryThumb && galleryButton) {
+      galleryButton.addEventListener('click', () => {
+        const mainImage = { src: galleryMain.src, alt: galleryMain.alt };
+        galleryMain.src = galleryThumb.src;
+        galleryMain.alt = galleryThumb.alt;
+        galleryThumb.src = mainImage.src;
+        galleryThumb.alt = mainImage.alt;
+      });
+    }
   } catch (error) {
     detailContent.innerHTML = `
       <div class="project-split-content">
