@@ -1525,7 +1525,11 @@ section {
 .projects-more-link .btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
+  padding: 0.55rem 1.25rem;
+  font-size: 0.9rem;
+  border-width: 1px;
+  border-radius: 8px;
 }
 
 .projects-more-link .btn i {
@@ -1783,8 +1787,17 @@ a.project-card:focus-visible {
   padding: 1rem 1rem 1rem 0.25rem;
 }
 
+.project-split-content .project-back,
+.project-detail-page-view .btn-outline {
+  padding: 0.45rem 1rem;
+  font-size: 0.875rem;
+  border-width: 1px;
+  border-radius: 8px;
+  gap: 0.45rem;
+}
+
 .project-split-content .project-back {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .project-detail-title {
