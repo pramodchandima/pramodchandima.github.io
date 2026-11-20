@@ -2076,7 +2076,7 @@ footer {
   .bento-skill-card {
     flex: 0 0 84%;
     height: auto;
-    min-height: 430px;
+    min-height: 360px;
     justify-content: flex-start;
     padding: 1.55rem;
     scroll-snap-align: start;
