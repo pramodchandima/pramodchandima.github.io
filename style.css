@@ -1054,6 +1054,12 @@ section {
   border-color: rgba(236, 72, 153, 0.3);
 }
 
+.bento-badge.amber {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
 .bento-status {
   display: inline-flex;
   align-items: center;

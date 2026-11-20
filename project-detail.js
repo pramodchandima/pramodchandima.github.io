@@ -4,7 +4,8 @@ const projectNames = {
   'mobile-hub': 'Mobile HUB',
   'fashion-hub': 'Fashion HUB',
   'tour-management': 'Tour Management System',
-  'event-x': 'EventX'
+  'event-x': 'EventX',
+  'ecommerce-system': 'E-Commerce Web Application'
 };
 
 const requestedProject = new URLSearchParams(window.location.search).get('project');
