@@ -25,8 +25,17 @@ async function renderProject() {
   try {
     const projectMarkup = await loadComponent(`components/${activeProject}.html`);
 
-    detailContent.innerHTML = projectMarkup;
+    const relatedMarkup = await loadComponent('components/related-projects.html');
+
+    detailContent.innerHTML = `${projectMarkup}${relatedMarkup}`;
     document.title = `${projectNames[activeProject]} | Pramod Chandima`;
+
+    detailContent.querySelectorAll('[data-project]').forEach(card => {
+      if (card.dataset.project === activeProject) {
+        card.classList.add('is-current-project');
+        card.setAttribute('aria-current', 'page');
+      }
+    });
   } catch (error) {
     detailContent.innerHTML = `
       <div class="project-split-content">
