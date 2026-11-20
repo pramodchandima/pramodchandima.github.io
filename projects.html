@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Pramod Chandima</title>
+  <meta name="description" content="Explore the projects and web applications built by Pramod Chandima.">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="dark bg-slate-900 text-slate-100 font-sans antialiased relative overflow-x-hidden">
+  <div id="siteHeader"></div>
+
+  <main class="project-details-page relative z-10">
+    <div class="container">
+      <div class="project-details-intro">
+        <h1 class="section-title">Project Details</h1>
+        <p>Explore the goals, features, and technologies behind my featured digital projects. Select a card to view its full breakdown.</p>
+      </div>
+
+      <div class="bento-grid-projects">
+        <a href="project-detail.html?project=mobile-hub" class="bento-card project-card group" aria-label="View Mobile HUB details">
+          <div class="project-img bg-slate-800 relative overflow-hidden">
+            <img src="images/MobileHub design.png" alt="Mobile HUB Project" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="img-overlay">
+              <div class="overlay-text">View Details</div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div>
+              <h3 class="text-cyan-400">Mobile HUB</h3>
+              <p class="bento-desc">A premium full-stack storefront for mobile devices and accessories, powered by React, a Node.js/Express API and a complete MySQL-backed admin portal.</p>
+              <div class="bento-tags">
+                <span class="tech-tag"><i class="fab fa-react text-cyan-400"></i> React</span>
+                <span class="tech-tag"><i class="devicon-tailwindcss-plain text-cyan-400"></i> Tailwind</span>
+                <span class="tech-tag"><i class="fab fa-node-js text-green-400"></i> Node.js</span>
+                <span class="tech-tag"><i class="fas fa-database text-blue-400"></i> MySQL</span>
+              </div>
+            </div>
+            <ul class="project-features">
+              <li><i class="fas fa-check text-cyan-400"></i> Glassmorphic, fully responsive storefront</li>
+              <li><i class="fas fa-check text-cyan-400"></i> Admin dashboard with full product CRUD</li>
+              <li><i class="fas fa-check text-cyan-400"></i> JWT/bcrypt auth &amp; secure uploads</li>
+            </ul>
+          </div>
+        </a>
+
+        <a href="project-detail.html?project=fashion-hub" class="bento-card project-card group" aria-label="View Fashion HUB details">
+          <div class="project-img bg-slate-800 relative overflow-hidden">
+            <img src="images/FashonHub design.png" alt="Fashion HUB Project" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="img-overlay">
+              <div class="overlay-text">View Details</div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div>
+              <h3 class="text-purple-400">Fashion HUB</h3>
+              <p class="bento-desc">A modern clothing store featuring WhatsApp-based direct ordering, catalog browsing, and a dedicated admin panel for inventory updates.</p>
+              <div class="bento-tags">
+                <span class="tech-tag"><i class="devicon-html5-plain text-indigo-400"></i> HTMl</span>
+                <span class="tech-tag"><i class="fab fa-js text-yellow-400"></i> JavaScript</span>
+                <span class="tech-tag"><i class="devicon-css-plain text-cyan-400"></i> CSS</span>
+              </div>
+            </div>
+            <ul class="project-features">
+              <li><i class="fas fa-check text-purple-400"></i> Direct WhatsApp Order Flow</li>
+              <li><i class="fas fa-check text-purple-400"></i> Product Catalog Admin Panel</li>
+              <li><i class="fas fa-check text-purple-400"></i> Fast &amp; Clean User Experience</li>
+            </ul>
+          </div>
+        </a>
+
+        <a href="project-detail.html?project=tour-management" class="bento-card project-card group" aria-label="View Tour Management System details">
+          <div class="project-img bg-slate-800 relative overflow-hidden">
+            <img src="images/TourManagement design.png" alt="Tour Management Project" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="img-overlay">
+              <div class="overlay-text">View Details</div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div>
+              <h3 class="text-teal-400">Tour Management System</h3>
+              <p class="bento-desc">Python-based desktop application for tour operations, managing driver details, vehicle data, payment records, and automated reports.</p>
+              <div class="bento-tags">
+                <span class="tech-tag"><i class="fab fa-python text-yellow-400"></i> Python</span>
+                <span class="tech-tag"><i class="devicon-sqlite-plain text-sky-400"></i> SQLite</span>
+                <span class="tech-tag"><i class="fas fa-file-excel text-emerald-400"></i> Excel Reports</span>
+                <span class="tech-tag"><i class="fas fa-file-pdf text-red-400"></i> PDF Exports</span>
+              </div>
+            </div>
+            <ul class="project-features">
+              <li><i class="fas fa-check text-teal-400"></i> Payment &amp; Expense Tracking</li>
+              <li><i class="fas fa-check text-teal-400"></i> Automated Excel &amp; PDF Reports</li>
+              <li><i class="fas fa-check text-teal-400"></i> Driver &amp; Fleet Records Audit</li>
+            </ul>
+          </div>
+        </a>
+      </div>
+
+      <div class="projects-more-link">
+        <a href="index.html#projects" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Featured Works</a>
+      </div>
+    </div>
+  </main>
+
+  <div id="siteFooter"></div>
+  <script src="site-chrome.js" defer></script>
+</body>
+</html>
