@@ -70,25 +70,7 @@
 
   <div id="formFeedback"></div>
 
-  <nav class="navbar">
-    <div class="container nav-container">
-      <div class="logo neon-text">PC</div>
-      <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#why-me">Why Me</a></li>
-        <li><a href="#tech-stack">Tech Stack</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div id="siteHeader"></div>
 
   <main class="relative z-10">
     <section id="home" class="hero">
@@ -234,19 +216,19 @@
             <div class="project-content">
               <div>
                 <h3 class="text-cyan-400">Mobile HUB</h3>
-                <p class="bento-desc">A retail showcase platform for mobile phones and digital accessories, featuring a
-                  custom admin dashboard for product and stock management.</p>
+                <p class="bento-desc">A premium full-stack storefront for mobile devices and accessories, powered by React,
+                  a Node.js/Express API and a complete MySQL-backed admin portal.</p>
                 <div class="bento-tags">
-                  <span class="tech-tag"><i class="devicon-nextjs-plain"></i> Next.js</span>
                   <span class="tech-tag"><i class="fab fa-react text-cyan-400"></i> React</span>
+                  <span class="tech-tag"><i class="devicon-tailwindcss-plain text-cyan-400"></i> Tailwind</span>
                   <span class="tech-tag"><i class="fab fa-node-js text-green-400"></i> Node.js</span>
-                  <span class="tech-tag"><i class="fas fa-database text-blue-400"></i> SQL</span>
+                  <span class="tech-tag"><i class="fas fa-database text-blue-400"></i> MySQL</span>
                 </div>
               </div>
               <ul class="project-features">
-                <li><i class="fas fa-check text-cyan-400"></i> Admin Management Dashboard</li>
-                <li><i class="fas fa-check text-cyan-400"></i> Dynamic Product Showcase</li>
-                <li><i class="fas fa-check text-cyan-400"></i> 100% Mobile Responsive Layout</li>
+                <li><i class="fas fa-check text-cyan-400"></i> Glassmorphic, fully responsive storefront</li>
+                <li><i class="fas fa-check text-cyan-400"></i> Admin dashboard with full product CRUD</li>
+                <li><i class="fas fa-check text-cyan-400"></i> JWT/bcrypt auth &amp; secure uploads</li>
               </ul>
             </div>
           </div>
@@ -307,6 +289,12 @@
               </ul>
             </div>
           </div>
+        </div>
+
+        <div class="projects-more-link" data-aos="fade-up">
+          <a href="projects.html" class="btn btn-outline">
+            Explore All Projects <i class="fas fa-arrow-right"></i>
+          </a>
         </div>
 
         <p class="projects-footer" data-aos="fade-up">I am constantly learning and adapting to the latest industry
@@ -574,58 +562,7 @@
     </section>
   </main>
 
-  <footer class="p-10 border-t border-slate-800">
-    <div class="container footer-content text-center">
-      <p>© 2026 Pramod Chandima. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Floating AI Assistant Widget (Sharp Corners) -->
-  <div class="ai-chat-widget" id="aiChatWidget">
-    <button class="ai-chat-toggle" id="aiChatToggle" aria-label="Open Chat Assistant">
-      <i class="fas fa-comment-alt chat-icon-open"></i>
-      <i class="fas fa-times chat-icon-close"></i>
-      <span class="chat-toggle-text">Ask Assistant</span>
-    </button>
-
-    <div class="ai-chat-window" id="aiChatWindow">
-      <div class="ai-chat-header">
-        <div class="ai-chat-header-info">
-          <div class="chat-status-indicator"></div>
-          <div>
-            <h4>Pramod's Assistant</h4>
-            <p>Ask about projects, skills & work</p>
-          </div>
-        </div>
-        <button class="ai-chat-close" id="aiChatClose" aria-label="Close Chat">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-
-      <div class="ai-chat-suggestions" id="aiChatSuggestions">
-        <button class="chat-chip" type="button" data-prompt="What projects has Pramod built?">Projects?</button>
-        <button class="chat-chip" type="button" data-prompt="What is your tech stack?">Tech Stack?</button>
-        <button class="chat-chip" type="button" data-prompt="Where can I find your GitHub and contact info?">GitHub &
-          Contact?</button>
-      </div>
-
-      <div class="ai-chat-messages" id="aiChatMessages">
-        <div class="chat-msg bot">
-          <div class="msg-bubble">
-            Hello! I'm Pramod's virtual assistant. Ask me anything about his projects, technical stack, or how to reach
-            him.
-          </div>
-        </div>
-      </div>
-
-      <form class="ai-chat-form" id="aiChatForm">
-        <input type="text" id="aiChatInput" placeholder="Ask a question..." autocomplete="off" required>
-        <button type="submit" id="aiChatSend" aria-label="Send Message">
-          <i class="fas fa-paper-plane"></i>
-        </button>
-      </form>
-    </div>
-  </div>
+  <div id="siteFooter"></div>
 
   <div class="image-modal" id="imageModal">
     <div class="modal-close" id="modalClose">&times;</div>
@@ -633,6 +570,7 @@
   </div>
 
   <!-- AOS.init is called inside script.js after DOMContentLoaded -->
+  <script src="site-chrome.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 
