@@ -1766,6 +1766,16 @@ a.project-card:focus-visible {
   object-position: center top;
 }
 
+.project-split-media .project-image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 430px;
+  font-size: 5rem;
+  color: var(--text-secondary);
+  opacity: 0.45;
+}
+
 .project-media-caption {
   position: absolute;
   left: 0;
@@ -1812,6 +1822,17 @@ a.project-card:focus-visible {
   color: var(--text-secondary);
   font-size: 1rem;
   line-height: 1.75;
+}
+
+.project-detail-meta {
+  margin: 0.75rem 0 0;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.project-detail-meta i {
+  margin-right: 0.45rem;
+  color: var(--neon-purple);
 }
 
 .project-split-content .tech-tag {
@@ -1873,6 +1894,12 @@ a.project-card:focus-visible {
   margin-top: 2.5rem;
   padding-top: 1.75rem;
   border-top: 1px solid var(--border-light);
+}
+
+.detail-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .related-projects {
@@ -1940,6 +1967,10 @@ a.project-card:focus-visible {
   .project-split-media img {
     height: 220px;
     min-height: 0;
+  }
+
+  .project-split-media .project-image-placeholder {
+    min-height: 220px;
   }
 
   .project-split-content {

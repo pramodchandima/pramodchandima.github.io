@@ -3,7 +3,8 @@ const detailContent = document.getElementById('projectDetailContent');
 const projectNames = {
   'mobile-hub': 'Mobile HUB',
   'fashion-hub': 'Fashion HUB',
-  'tour-management': 'Tour Management System'
+  'tour-management': 'Tour Management System',
+  'event-x': 'EventX'
 };
 
 const requestedProject = new URLSearchParams(window.location.search).get('project');
